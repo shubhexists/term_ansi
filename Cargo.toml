@@ -9,5 +9,3 @@ repository = "https://github.com/shubhexists/term_ansi"
 categories = ["development-tools", "command-line-utilities", "command-line-interface"]
 keywords = ["ansi", "colours", "terminal", "coloured", "ansi-terminal"]
 readme = "README.md"
-
-[dependencies]
