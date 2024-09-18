@@ -8,6 +8,12 @@
 
 `term_ansi` is a Rust crate that provides a simple and intuitive way to add colors and formatting to your terminal output using ANSI escape codes. With support for various predefined colors and custom RGB values, you can make your CLI applications more visually appealing and user-friendly.
 
+## ⚠️ Important Version Notice
+
+**Versions before v0.2.2 are unstable.**
+
+**v0.2.2 and above are fully tested and stable. We strongly recommend using this version or later for production use.**
+
 ## 📚 Table of Contents
 
 - [Features](#-features)
@@ -35,7 +41,7 @@ Add `term_ansi` to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-term_ansi = "0.1.0"
+term_ansi = "0.2.2"  # Make sure to use version 0.2.2 or later
 ```
 
 ## 🚀 Usage
@@ -115,14 +121,7 @@ println!();
 
 ## 🤝 Contributing
 
-Contributions are welcome! Here's how you can help:
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
+Contributions are welcome! Do discuss any improvements in the Issues first : )
 Please make sure to update tests as appropriate and adhere to the existing coding style.
 
 ## 📄 License
@@ -131,4 +130,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-Made with ❤️ using Rust. Happy coding! 🦀
+Happy coding! Hope it helps 🦀
