@@ -1,0 +1,6 @@
+[package]
+name = "term_ansi"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
