@@ -6,7 +6,7 @@
 
 > Colorize your terminal output with ease! 🎨✨
 
-`term_ansi` is a Rust crate that provides a simple and intuitive way to add colors and formatting to your terminal output using ANSI escape codes. With support for various predefined colors and custom RGB values, you can make your CLI applications more visually appealing and user-friendly.
+`term_ansi` is a super-light weight Rust crate that provides a simple and intuitive way to add colors and formatting to your terminal output using ANSI escape codes. With support for various predefined colors and custom RGB values, you can make your CLI applications more visually appealing and user-friendly.
 
 ## ⚠️ Important Version Notice
 
