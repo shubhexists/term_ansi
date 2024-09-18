@@ -1,6 +1,13 @@
 [package]
 name = "term_ansi"
+description = "A super lightweight macros crates to add ANSI Codes to your project"
 version = "0.1.0"
+license = "MIT"
 edition = "2021"
+author = "Shubham singh	<github: github.com/shubhexists>"
+repository = "https://github.com/shubhexists/term_ansi"
+categories = ["development-tools", "command-line-utilities", "command-line-interface"]
+keywords = ["ansi", "colours", "terminal", "coloured", "ansi-terminal"]
+readme = "README.md"
 
 [dependencies]
