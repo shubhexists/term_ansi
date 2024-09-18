@@ -20,7 +20,7 @@
 //! Then you can use the provided macros to format your terminal output. Here are some examples:
 //!
 //! ```rust
-//! use term_ansi::*; 
+//! use term_ansi::*;
 //!
 //! // Simple color application
 //! println!("{}", red!("Error message"));
@@ -32,7 +32,7 @@
 //! println!("{}", white!("This is {} with {} color", red!("red"), green!("green")));
 //!
 //! // Custom RGB color
-//! println!("{}", rgb!(255, 0, 0, "This is red text"));
+//! println!("{}", colour!(255, 0, 0, "This is red text"));
 //! ```
 //!
 //! ## Macros
@@ -296,6 +296,6 @@ macro_rules! cyan {
 macro_rules! colour {
     ($r:expr, $g:expr, $b:expr, $($arg:tt)*) => {{
         let color_code = format!("\x1b[38;2;{};{};{}m", $r, $g, $b);
-        $crate::apply_color!(color_code, $($arg)*)
+        $crate::apply_color!(&color_code, $($arg)*)
     }};
 }
