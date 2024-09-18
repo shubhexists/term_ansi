@@ -61,23 +61,23 @@ thread_local! {
 }
 
 #[allow(dead_code)]
-pub(crate) struct ColorContext;
+pub struct ColorContext;
 
 #[allow(dead_code)]
 impl ColorContext {
-    pub(crate) fn push(color: &str) {
+    pub fn push(color: &str) {
         COLOR_CONTEXT.with(|ctx| {
             ctx.borrow_mut().push(color.to_string());
         });
     }
 
-    pub(crate) fn pop() {
+    pub fn pop() {
         COLOR_CONTEXT.with(|ctx| {
             ctx.borrow_mut().pop();
         });
     }
 
-    pub(crate) fn current_color() -> String {
+    pub fn current_color() -> String {
         COLOR_CONTEXT.with(|ctx| {
             ctx.borrow()
                 .last()
