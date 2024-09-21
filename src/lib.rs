@@ -19,7 +19,7 @@
 //!
 //! ```toml
 //! [dependencies]
-//! term_ansi = "0.2.0"
+//! term_ansi = "0.2.5"
 //! ```
 //!
 //! Then you can use the provided macros to format your terminal output. Here are some examples:

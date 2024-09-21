@@ -6,13 +6,7 @@
 
 > Colorize your terminal output with ease! 🎨✨
 
-`term_ansi` is a super-light weight Rust crate that provides a simple and intuitive way to add colors and formatting to your terminal output using ANSI escape codes. With support for various predefined colors and custom RGB values, you can make your CLI applications more visually appealing and user-friendly.
-
-## ⚠️ Important Version Notice
-
-**Versions before v0.2.2 are unstable.**
-
-**v0.2.2 and above are fully tested and stable. We strongly recommend using this version or later for production use.**
+`term_ansi` is a lightweight Rust crate that provides a simple and intuitive way to add colors and formatting to your terminal output using ANSI escape codes. With support for various predefined colors, custom RGB values, and text styles, you can make your CLI applications more visually appealing and user-friendly.
 
 ## 📚 Table of Contents
 
@@ -20,8 +14,10 @@
 - [Installation](#-installation)
 - [Usage](#-usage)
   - [Basic Colors](#basic-colors)
-  - [Nested Colors](#nested-colors)
-  - [Custom RGB Colors](#custom-rgb-colors)
+  - [Background Colors](#background-colors)
+  - [Text Styles](#text-styles)
+  - [Custom Colors](#custom-colors)
+  - [Nested Formatting](#nested-formatting)
 - [Available Macros](#-available-macros)
 - [Examples](#-examples)
 - [Contributing](#-contributing)
@@ -29,11 +25,12 @@
 
 ## ✨ Features
 
-- 🎨 Easy-to-use macros for applying colors
-- 🌈 Support for 8 predefined colors
-- 🔢 Custom RGB color support
-- 🪆 Nested color application
-- 🧵 Thread-safe color context management
+- 🎨 Easy-to-use macros for applying colors and styles
+- 🌈 Support for 8 predefined foreground and background colors
+- 🔢 Custom RGB, HSL, and HSV color support for text and background
+- 🧵 Text styles: Bold, Italic, Underline
+- 🪆 Nested color and style application
+- 🧪 Thread-safe color context management
 
 ## 📦 Installation
 
@@ -41,7 +38,7 @@ Add `term_ansi` to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-term_ansi = "0.2.2"  # Make sure to use version 0.2.2 or later
+term_ansi = "0.2.5"
 ```
 
 ## 🚀 Usage
@@ -62,40 +59,64 @@ println!("{}", green!("This is green text"));
 println!("{}", blue!("This is blue text"));
 ```
 
-### Nested Colors
+### Background Colors
 
-You can nest color macros for more complex formatting:
+Apply background colors to your text:
 
 ```rust
-println!("{}", white!("This is {} with {} color", red!("red"), green!("green")));
+println!("{}", bg_yellow!("This has a yellow background"));
+println!("{}", bg_cyan!("This has a cyan background"));
 ```
 
-### Custom RGB Colors
+### Text Styles
 
-Use the `colour!` macro to apply custom RGB colors:
+Apply text styles:
 
 ```rust
-println!("{}", colour!(255, 128, 0, "This is orange text"));
+println!("{}", bold!("This text is bold"));
+println!("{}", italic!("This text is italic"));
+println!("{}", underline!("This text is underlined"));
+```
+
+### Custom Colors
+
+Use custom RGB, HSL, or HSV colors:
+
+```rust
+println!("{}", rgb!(255, 128, 0, "This is orange text"));
+println!("{}", hsl!(120.0, 1.0, 0.5, "This is green text"));
+println!("{}", bg_hsv!(240.0, 1.0, 1.0, "This has a blue background"));
+```
+
+### Nested Formatting
+
+Combine multiple styles and colors:
+
+```rust
+println!("{}", red!("{}", bg_white!("{}" bold!("Important: {}"), "Read this!")));
 ```
 
 ## 📚 Available Macros
 
-- `red!`: Apply red color
-- `green!`: Apply green color
-- `blue!`: Apply blue color
-- `white!`: Apply white color
-- `black!`: Apply black color
-- `yellow!`: Apply yellow color
-- `magenta!`: Apply magenta color
-- `cyan!`: Apply cyan color
-- `colour!`: Apply a custom RGB color
+### Text Colors
+- `red!`, `green!`, `blue!`, `white!`, `black!`, `yellow!`, `magenta!`, `cyan!`
+
+### Background Colors
+- `bg_red!`, `bg_green!`, `bg_blue!`, `bg_white!`, `bg_black!`, `bg_yellow!`, `bg_magenta!`, `bg_cyan!`
+
+### Text Styles
+- `bold!`, `italic!`, `underline!`
+
+### Custom Colors
+- `rgb!`, `hsl!`, `hsv!`: Custom foreground colors
+- `bg_rgb!`, `bg_hsl!`, `bg_hsv!`: Custom background colors
 
 ## 💡 Examples
 
-### Simple Error Message
+### Error Message with Style
 
 ```rust
-println!("{}", red!("Error: {}", "File not found"));
+println!("{}", red!("{}", bold!("Error: {}"), "File not found"));
 ```
 
 ### Colorful Status Message
@@ -104,25 +125,33 @@ println!("{}", red!("Error: {}", "File not found"));
 println!("{} {} {}", green!("✓"), blue!("Building project:"), yellow!("in progress"));
 ```
 
-### Nested Color Formatting
-
-```rust
-println!("{}", white!("Status: {} | {}", green!("OK"), red!("Failed: {}", 3)));
-```
-
 ### Custom Color Gradient
 
 ```rust
 for i in 0..=255 {
-    print!("{}", colour!(i, 0, 255 - i, "█"));
+    print!("{}", rgb!(i, 0, 255 - i, "█"));
 }
 println!();
 ```
 
+### Complex Nested Formatting
+
+```rust
+println!("{}",
+    bg_blue!("{}",
+        white!("{}",
+            bold!("Status: {} | {}",
+                green!("OK"),
+                red!("{}", underline!("Failed: {}"), 3)
+            )
+        )
+    )
+);
+```
+
 ## 🤝 Contributing
 
-Contributions are welcome! Do discuss any improvements in the Issues first : )
-Please make sure to update tests as appropriate and adhere to the existing coding style.
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📄 License
 
@@ -130,4 +159,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-Happy coding! Hope it helps 🦀
+Happy colorful coding! 🦀🌈
